@@ -16,7 +16,7 @@ Console.WriteLine("Documento: " + persona1.Id); */
 	public int Edad;
 } */
 
-Coche coche1 = new Coche();
+/* Coche coche1 = new Coche();
 
 coche1.Marca = "Toyota";
 coche1.Modelo = "Corolla";
@@ -35,5 +35,56 @@ public class Coche
 		Console.WriteLine("Coche: " + this.Marca + ", " + this.Modelo + ", " + this.Año);
 	}
 }
+ */
 
 
+Console.WriteLine("Hello, World!");
+
+var persona = new Personas();
+Personas persona1 = new Personas();
+Personas persona2 = new Estudiantes();
+
+persona.Id = 1;
+persona.Nombre = "Pepito Perez";
+persona.Activo = true;
+persona.Salario = 1400000.0m;
+persona.Estado = new Estados() { Id = 1, Nombre = "Casado" };
+persona.VideoJuegos = new List<VideoJuegos>();
+persona.VideoJuegos.Add(new VideoJuegos() { Id = 1, Nombre = "LOZ 2025" });
+persona.VideoJuegos.Add(new VideoJuegos() { Id = 2, Nombre = "Tetrix" });
+
+Console.WriteLine(persona.Nombre);
+Console.WriteLine(persona.Estado.Nombre);
+
+foreach (var elemento in persona.VideoJuegos)
+{
+    Console.WriteLine(elemento.Nombre);
+}
+
+public class Estados
+{
+    public int Id = 0;
+    public String? Nombre = "";
+}
+
+public class VideoJuegos
+{
+    public int Id = 0;
+    public String? Nombre = "";
+}
+
+public class Personas
+{
+    public int Id = 0;
+    public String? Nombre = "";
+    public DateTime Fecha = DateTime.Now;
+    public bool Activo = false;
+    public decimal Salario = 0.0m;
+    public Estados Estado = new Estados();
+    public List<VideoJuegos> VideoJuegos = new List<VideoJuegos>();
+}
+
+public class Estudiantes : Personas
+{
+    public String? Carnet = "";
+}
